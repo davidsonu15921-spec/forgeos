@@ -1,0 +1,301 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const latestPosts = posts.slice(0, 3);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<h1>Build Automated Businesses With AI</h1>
+				<p class="tagline">Deep research, ruthless analysis, and real systems for solopreneurs who refuse to trade time for money.</p>
+				<a href="/blog" class="cta-button">Read the Latest Insights</a>
+			</section>
+
+			<section class="features">
+				<div class="feature-card">
+					<h3>🤖 AI Tools That Actually Work</h3>
+					<p>No fluff. No hype. Only tools and workflows tested in real solopreneur businesses.</p>
+				</div>
+				<div class="feature-card">
+					<h3>⚡ Automation Playbooks</h3>
+					<p>Step-by-step systems to replace yourself in your business and reclaim your time.</p>
+				</div>
+				<div class="feature-card">
+					<h3>💰 Monetization Strategies</h3>
+					<p>Turn AI from a tool into a real income asset with proven monetization frameworks.</p>
+				</div>
+			</section>
+
+			<section class="latest-posts">
+				<h2 class="section-title">Latest Insights</h2>
+				<div class="posts-grid">
+					{
+						latestPosts.map((post) => (
+							<article class="post-card">
+								<a href={`/blog/${post.id}/`}>
+									<h3>{post.data.title}</h3>
+									<p class="post-date">
+										<FormattedDate date={post.data.pubDate} />
+									</p>
+									<p class="post-description">{post.data.description}</p>
+									<span class="read-more">Read More →</span>
+								</a>
+							</article>
+						))
+					}
+				</div>
+				<div class="view-all">
+					<a href="/blog" class="cta-button-secondary">View All Articles →</a>
+				</div>
+			</section>
+
+			<section class="newsletter">
+				<h2>Get the Weekly Brief</h2>
+				<p>Every Tuesday: one actionable AI automation strategy you can implement in under an hour.</p>
+				<form class="newsletter-form">
+					<input type="email" placeholder="your@email.com" required />
+					<button type="submit">Subscribe Free</button>
+				</form>
+				<p class="newsletter-note">No spam. Unsubscribe anytime.</p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	main {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2em 1em;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	section {
+		display: block;
+		width: 100%;
+		margin-bottom: 4em;
+		clear: both;
+	}
+
+	.hero {
+		text-align: center;
+		padding: 4em 1.5em;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		color: white;
+		border-radius: 12px;
+	}
+
+	.hero h1 {
+		font-size: 3em;
+		margin: 0 0 0.5em 0;
+		color: white;
+		line-height: 1.1;
+	}
+
+	.tagline {
+		font-size: 1.3em;
+		max-width: 700px;
+		margin: 0 auto 2em auto;
+		opacity: 0.95;
+		line-height: 1.5;
+	}
+
+	.cta-button {
+		display: inline-block;
+		background: white;
+		color: #667eea;
+		padding: 1em 2em;
+		border-radius: 6px;
+		text-decoration: none;
+		font-weight: bold;
+		font-size: 1.1em;
+		transition: transform 0.2s;
+	}
+
+	.cta-button:hover {
+		transform: translateY(-2px);
+	}
+
+	.cta-button-secondary {
+		display: inline-block;
+		background: #667eea;
+		color: white;
+		padding: 0.8em 1.5em;
+		border-radius: 6px;
+		text-decoration: none;
+		font-weight: bold;
+	}
+
+	.features {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2em;
+	}
+
+	.feature-card {
+		background: white;
+		padding: 2em;
+		border-radius: 12px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+		border: 1px solid #f0f0f0;
+	}
+
+	.feature-card h3 {
+		margin-top: 0;
+		font-size: 1.3em;
+	}
+
+	.feature-card p {
+		color: #555;
+		margin-bottom: 0;
+		line-height: 1.6;
+	}
+
+	.section-title {
+		text-align: center;
+		font-size: 2em;
+		margin: 0 0 1.5em 0;
+	}
+
+	.posts-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2em;
+	}
+
+	.post-card {
+		background: white;
+		padding: 1.5em;
+		border-radius: 12px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+		border: 1px solid #f0f0f0;
+		transition: transform 0.2s, box-shadow 0.2s;
+	}
+
+	.post-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+	}
+
+	.post-card a {
+		text-decoration: none;
+		color: inherit;
+		display: block;
+	}
+
+	.post-card h3 {
+		margin: 0 0 0.5em 0;
+		color: #1a1a1a;
+		font-size: 1.2em;
+		line-height: 1.3;
+	}
+
+	.post-date {
+		color: #888;
+		font-size: 0.9em;
+		margin: 0 0 0.8em 0;
+	}
+
+	.post-description {
+		color: #555;
+		font-size: 0.95em;
+		line-height: 1.5;
+		margin: 0 0 1em 0;
+	}
+
+	.read-more {
+		color: #667eea;
+		font-weight: bold;
+		font-size: 0.95em;
+	}
+
+	.view-all {
+		text-align: center;
+		margin-top: 2em;
+	}
+
+	.newsletter {
+		background: #f7f8fc;
+		padding: 3em 2em;
+		border-radius: 12px;
+		text-align: center;
+	}
+
+	.newsletter h2 {
+		font-size: 2em;
+		margin: 0 0 0.5em 0;
+	}
+
+	.newsletter p {
+		font-size: 1.1em;
+		color: #555;
+		margin-bottom: 1.5em;
+	}
+
+	.newsletter-form {
+		display: flex;
+		max-width: 500px;
+		margin: 0 auto;
+		gap: 0.5em;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.newsletter-form input {
+		flex: 1;
+		min-width: 200px;
+		padding: 1em;
+		border: 1px solid #ddd;
+		border-radius: 6px;
+		font-size: 1em;
+		font-family: inherit;
+	}
+
+	.newsletter-form button {
+		padding: 1em 2em;
+		background: #667eea;
+		color: white;
+		border: none;
+		border-radius: 6px;
+		font-size: 1em;
+		font-weight: bold;
+		cursor: pointer;
+		font-family: inherit;
+	}
+
+	.newsletter-form button:hover {
+		background: #5568d3;
+	}
+
+	.newsletter-note {
+		margin-top: 1em;
+		font-size: 0.85em;
+		color: #888;
+	}
+
+	@media (max-width: 720px) {
+		.hero h1 {
+			font-size: 2em;
+		}
+		.tagline {
+			font-size: 1.1em;
+		}
+	}
+</style>
