@@ -139,3 +139,68 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
+
+/* ===================================== */
+/* Newsletter Subscribe Section - Beehiiv */
+/* ===================================== */
+
+.newsletter-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 16px;
+  margin: 40px 0;
+}
+
+.newsletter-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.newsletter-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  opacity: 0.95;
+  color: white;
+}
+
+.cta-button-big {
+  display: inline-block;
+  background: #ffffff;
+  color: #667eea;
+  padding: 18px 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.cta-button-big:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  color: #667eea;
+}
+
+.small-text {
+  margin-top: 20px;
+  font-size: 0.9rem !important;
+  opacity: 0.85;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .newsletter-section h2 {
+    font-size: 1.8rem;
+  }
+  .newsletter-section p {
+    font-size: 1rem;
+  }
+  .cta-button-big {
+    padding: 15px 30px;
+    font-size: 1rem;
+  }
+}
