@@ -162,3 +162,32 @@ Pick ONE tool from this list today. Use it for 7 days. Watch your output 5x.
 ---
 
 **Want more guides like this?** Get our weekly automation playbook below 👇
+
+---
+
+## 🚀 Ready to Build Your AI-Powered Content System?
+
+Picking the right AI agent is just step one. The real magic happens when you connect them to a publishing platform that grows your audience on autopilot.
+
+That's why I built **ForgeOS Weekly** on **[Beehiiv](https://www.beehiiv.com/?via=david-samesha)** — the easiest newsletter platform for solopreneurs who want:
+
+- ✅ **Free forever plan** (up to 2,500 subscribers)
+- ✅ **Built-in SEO** for your newsletter posts
+- ✅ **Referral program** to grow your list automatically
+- ✅ **Monetization tools** (ads + paid subs) from day one
+
+👉 **[Start your free Beehiiv newsletter today →](https://www.beehiiv.com/?via=david-samesha)**
+
+*No credit card required. Set up in under 5 minutes.*
+
+---
+
+## 📬 Get More AI Automation Playbooks
+
+Want weekly deep-dives on AI tools, automation systems, and solopreneur income strategies?
+
+**Join 1,000+ readers of ForgeOS Weekly** — delivered every Sunday.
+
+👉 **[Subscribe to ForgeOS Weekly (Free) →](https://forgeos-1.beehiiv.com/subscribe?ref=B6CRo019hN)**
+
+*Real systems. Zero fluff. Unsubscribe anytime.*
